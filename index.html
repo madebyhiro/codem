@@ -4,32 +4,31 @@ layout: default
 ---
 <h2>What is it?</h2>
 <p>
-  Codem is an open source project, designed to convert video material from one format to another, as flexible and as scalable as possible.
+  Codem is a free open source suite for converting video material from one format to another, as flexible and as scalable as possible.
 </p>
 
 <hr/>
 
 <h2>How does it work?</h2>
 <p>
-  Codem consists of two separate projects, the Scheduler and the Transcoder. A Scheduler handles the scheduling and processing of jobs, and the Transcoder actually transcodes videos from one format to another.
-</p>
-<h3>The Scheduler</h3>
-<p>
-  The Scheduler is built in Ruby on Rails and consists of a frontend viewable in your browser, and an API to handle scheduling of jobs via the command line.
-  <a href="scheduler.html">Read more</a> about the Scheduler.
-</p>
-<h3>The Transcoder</h3>
-<p>
-  The Transcoder is a NodeJS server, handling the actual transcoding of jobs through ffmpeg.
-  <a href="transcoder.html">Read more</a> about the Transcoder.
+  Codem consists of two separate projects, the Scheduler and the Transcoder. The Scheduler handles the scheduling and handling of jobs, and the Transcoder transcodes videos from one format to another. These two components communicate via a lightweight JSON api over HTTP.
 </p>
 
+<hr/>
+
+<h2>Why should I use it?</h2>
+<p>
+	These are the key features of Codem:
+	<ol class="in">
+		<li>it's easy to add new video formats</li>
+		<li>it's easy to scale out by adding more Transcoders and/or Schedulers</li>
+		<li>it's easy to extend</li>
+	</ol>
+</p>
 
 <hr/>
 
 <h2>More information</h2>
 <p>
-  Documentation for both the Transcoder and the Scheduler are available on GitHub:<br/>
-  <a href="https://github.com/NPO/codem-schedule/wiki">Scheduler wiki</a><br/>
-  <a href="https://github.com/NPO/codem-transcode/wiki">Transcoder wiki</a><br/>
+	Read more on the <a href="architecture/">architecture</a> of Codem, the <a href="installation/">installation</a> guide, or take a look at the <a href="api/">API documentation</a>.
 </p>

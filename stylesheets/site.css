@@ -32,12 +32,13 @@ p {
 }
 
 nav {
-	width:860px;
+	width:800px;
 	max-width:860px;
 	position:absolute;
 	background-color:#a00;
 	height:40px;
 	margin:-30px;
+	padding:0 30px;
 }
 
 nav ol {
@@ -129,4 +130,8 @@ footer {
 
 footer a {
 	color:white;
+}
+
+ol.in, ul.in {
+	list-style-position:inside;
 }
