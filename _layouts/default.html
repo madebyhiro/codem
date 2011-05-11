@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link href="stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    {% include header.html %}
+
+    <section id="content">
+      {% include nav.html %}
+      
+      <div class="logo">
+        <a href="index.html"><img src="/images/codem.png" alt="Codem"></a>
+        <h1>{{ page.title }}</h1>
+      </div>
+      
+      {{ content }}
+      
+      {% include footer.html %}    
+    </section>
+  </body>
+</html>
