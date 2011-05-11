@@ -33,6 +33,7 @@ p {
 
 nav {
 	width:860px;
+	max-width:860px;
 	position:absolute;
 	background-color:#a00;
 	height:40px;
