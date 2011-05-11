@@ -1,0 +1,109 @@
+---
+title: Installation of Codem
+layout: default
+---
+<p>
+	Installing Codem is a three step process.	
+</p>
+
+<ol class="in">
+	<li>
+		<a href="#prereq">Install the prerequisites</a>
+	</li>
+	<li>
+		<a href="#transcoder">Install the Transcoder</a>
+	</li>
+	<li>
+		<a href="#scheduler">Install the Scheduler</a>
+	</li>
+</ol>
+
+<a name="prereq"></a>
+<h2>1. Prerequisites</h2>
+<p>
+	Packages listed here are required to run the Codem software suite.
+</p>
+
+<ol class="in">
+	<li><a href="http://www.ruby-lang.org/en/" rel="external">ruby</a></li>
+	<li><a href="http://nodejs.org/" rel="external">node js</a></li>
+	<li><a href="https://github.com/mikeal/npm" rel="external">npm</a></li>
+	<li><a href="http://www.ffmpeg.org/" rel="external">ffmpeg</a></li>
+	<li><a href="http://www.sqlite.org/" rel="external">sqlite</a></li>
+</ol>
+
+<p>
+		<a href="http://git-scm.com/" rel="external">git</a> is required if you want to download and work on the source code of Codem.
+</p>
+
+<hr/>
+
+
+<a name="transcoder"></a>
+<h2>2. Installing the Transcoder</h2>
+
+<ol class="in">
+	<li>
+		Either clone the git repository or <a href="https://github.com/NPO/codem-transcode/archives/master" rel="external">download</a> a packaged archive.
+		{% highlight bash %}		
+		$ git clone git://github.com/NPO/codem-transcode.git
+		{% endhighlight %}
+	</li>
+	<li>
+		Install dependencies through npm
+		{% highlight bash %}
+		$ npm install sqlite3 connect argsparser mkdirp
+		{% endhighlight %}
+	</li>
+	<li>
+		Start the server
+		{% highlight bash %}
+		$ node transcoder.js
+		{% endhighlight %}
+	</li>
+</ol>
+<p>
+	For more information, see the <a href="https://github.com/NPO/codem-transcode" rel="external">Transcoder README</a>
+</p>
+
+<hr/>
+
+
+<a name="scheduler"></a>
+<h2>3. Installing the Scheduler</h2>
+
+<ol class="in">
+	<li>
+		Either clone the git repository or <a href="https://github.com/NPO/codem-schedule/archives/master" rel="external">download</a> a packaged archive.
+		{% highlight bash %}		
+		$ git clone git://github.com/NPO/codem-schedule.git
+		{% endhighlight %}
+	</li>
+	<li>
+		Install the required gems.
+		{% highlight bash %}
+		$ bundle install
+		{% endhighlight %}
+	</li>
+	<li>
+		Run the installer rake task, which will setup the application.
+		{% highlight bash %}
+		$ rake codem:install
+		{% endhighlight %}
+	</li>
+	<li>
+		Use cron or a similar tool to trigger the status update task. For example, to run the task every 2 minutes, use:
+		{% highlight bash %}
+		*/2 * * * * curl -s http://localhost:3000/api/schedule
+		{% endhighlight %}
+	</li>
+	<li>
+		Start the server
+		{% highlight bash %}
+		$ rails server
+		{% endhighlight %}
+	</li>
+</ol>
+<p>
+	For more information, see the <a href="https://github.com/NPO/codem-schedule" rel="external">Scheduler README</a>
+</p>
