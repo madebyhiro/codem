@@ -1,29 +1,35 @@
 ---
-title: Codem documentation
+title: Codem - the open source video transcoder
 layout: default
 ---
 <h2>What is it?</h2>
 <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Codem is an open source project, designed to convert video material from one format to another, as flexible and as scalable as possible.
 </p>
 
 <hr/>
 
-<h2>Installation</h2>
+<h2>How does it work?</h2>
 <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Codem consists of two separate projects, the Scheduler and the Transcoder. A Scheduler handles the scheduling and processing of jobs, and the Transcoder actually transcodes videos from one format to another.
 </p>
+<h3>The Scheduler</h3>
+<p>
+  The Scheduler is built in Ruby on Rails and consists of a frontend viewable in your browser, and an API to handle scheduling of jobs via the command line.
+  <a href="scheduler.html">Read more</a> about the Scheduler.
+</p>
+<h3>The Transcoder</h3>
+<p>
+  The Transcoder is a NodeJS server, handling the actual transcoding of jobs through ffmpeg.
+  <a href="transcoder.html">Read more</a> about the Transcoder.
+</p>
+
 
 <hr/>
 
 <h2>More information</h2>
 <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-
-<hr/>
-
-<h2>More information</h2>
-<p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  Documentation for both the Transcoder and the Scheduler are available on GitHub:<br/>
+  <a href="https://github.com/NPO/codem-schedule/wiki">Scheduler wiki</a><br/>
+  <a href="https://github.com/NPO/codem-transcode/wiki">Transcoder wiki</a><br/>
 </p>
