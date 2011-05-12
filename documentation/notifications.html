@@ -39,7 +39,7 @@ $ codem -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.co
 <p>
 	If an email notification is sent, the specified email address received a plain text email describing the changes that happened. If an url notification is
 	sent, the corresponding url receives a JSON representation of the job. The JSON below is an example when a job just entered the Success state.
-{% highlight json %}
+{% highlight bash %}
 {
 	"job": {
 		"callback_url":"http://localhost:3000/api/jobs/26",
