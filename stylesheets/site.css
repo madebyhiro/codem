@@ -184,3 +184,8 @@ ol.submenu {
 	margin:12px 0;
 	list-style-position:inside;
 }
+
+pre {
+	font-size:12px;
+	line-height:14px;
+}

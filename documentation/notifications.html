@@ -37,7 +37,30 @@ $ codem -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.co
 
 <h2 id="receiving">Receiving notifications</h2>
 <p>
-	
+	If an email notification is sent, the specified email address received a plain text email describing the changes that happened. If an url notification is
+	sent, the corresponding url receives a JSON representation of the job. The JSON below is an example when a job just entered the Success state.
+{% highlight json %}
+{
+	"job": {
+		"callback_url":"http://localhost:3000/api/jobs/26",
+		"completed_at":"2011-05-10T08:45:03Z",
+		"created_at":"2011-05-10T08:25:00Z",
+		"destination_file":"/tmp/movie.mp4",
+		"duration":10577,
+		"filesize":4873221,
+		"host_id":1,
+		"id":26,
+		"message":null,
+		"preset_id":1,
+		"progress":1,
+		"remote_job_id":"fa832776a64b6844fb9f1a244757734a9d83c00f",
+		"source_file":"/tmp/movie.flv",
+		"state":"success",
+		"transcoding_started_at":"2011-05-10T08:25:03Z",
+		"updated_at":"2011-05-10T08:25:03Z" 
+	}
+}
+{% endhighlight %}
 </p>
 
 <h2 id="other_states">Adding notifications to other states</h2>
