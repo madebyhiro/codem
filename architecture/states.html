@@ -1,0 +1,68 @@
+---
+title: States of a job
+layout: default
+---
+<div class="crumbs">
+	<a href="/codem/index.html">Home</a> | <a href="/codem/architecture">Architecture</a> | States
+</div>
+
+<h2>Overview</h2>
+
+<p>
+	A job in the Scheduler can be in one of a number of states. Whenever a state changes occurs, it will be saved to the database with a timestamp, 
+	and can be viewed in the web front end or retrieved from the Scheduler API. State changes can also be used as a hook to send out notifications via
+	email or the web.
+</p>
+
+The states of a job:
+<dl class="job-states">
+	<dt><a href="#scheduled">Scheduled</a></dt>
+	<dd>The job is waiting to be accepted by a Transcoder</dd>
+	<dt><a href="#accepted">Accepted</a></dt>
+	<dd>The job has been accepted by the Transcoder, but has not begun transcoding</dd>
+	<dt><a href="#processing">Processing</a></dt>
+	<dd>The job is being transcoded by the Transcoder</dd>
+	<dt><a href="#on_hold">On Hold</a></dt>
+	<dd>The Transcoder instance for this job is currently unreachable</dd>
+	<dt><a href="#completed">Completed</a></dt>
+	<dd>The job has been successfully transcoded</dd>
+	<dt><a href="#failed">Failed</a></dt>
+	<dd>The job could not be transcoded because an error occured</dd>
+</dl>
+
+<h3 id="scheduled">Scheduled</h3>
+<p>
+	When a job enters the Scheduled state, it is waiting to be accepted by a Transcoder. Either the scheduling has not begun yet, or all Transcoder instances
+	are unable to accept any more jobs. A Transcoder instance has a number of slots available, which are by default defined by the number of processors a 
+	machine has.
+</p>
+
+<h3 id="accepted">Accepted</h3>
+<p>
+	The job has been accepted by a transcoder, but has not begun transcoding. This state is primarily for sending out notifications, since a Transcoder
+	will start processing the job immediately.
+</p>
+
+<h3 id="processing">Processing</h3>
+<p>
+	The job is currently being processed by a Transcoder. A value between 0 and 1 indicating the progress of the job will be updated and is provided
+	in the API and web front end.
+</p>
+
+<h3 id="on_hold">On Hold</h3>
+<p>
+	Whenever a Transcoder affiliated with a job is unavailable, that job will enter the On Hold state. Either the Transcoder has gone away
+	or could not be reached in time. Since no information is available about the job's progress, the job will enter the On Hold state.
+</p>
+
+<h3 id="completed">Completed</h3>
+<p>
+	When a Transcoder successfully finishes transcoding a job, this job will enter the Completed state. The job's progress will be set to 1 and
+	notifications (if any) will be sent by the Scheduler.
+</p>
+
+<h3 id="failed">Failed</h3>
+<p>
+	If an error occurs in the Transcoder, a job will enter the Failed state. A message indicating the error will be stored alongside the state change.
+	Failed jobs will not automatically be rescheduled.
+</p>
