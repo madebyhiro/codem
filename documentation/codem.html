@@ -1,0 +1,87 @@
+---
+title: The codem script
+layout: default
+---
+<div class="crumbs">
+	<a href="/codem/index.html">Home</a> | <a href="/codem/documentation">Documentation</a> | The <code>codem</code> script
+</div>
+
+<h2>Overview</h2>
+<p>
+	Creating jobs in the Scheduler can be done via the web front end and the API. For easy creation of jobs in the API, a script is installed in
+	<code>{path to Scheduler}bin/codem</code>. This script is self contained and can be copied to another location if needed.
+</p>
+
+<h2>Options</h2>
+<p>
+	The <code>codem</code> script accepts a number of options, which are detailed below.
+
+	<table class="codem-help">
+		<tr>
+			<th class="short">Short</th>
+			<th class="long">Long</th>
+			<th class="description">Description</th>
+		</tr>
+		<tr>
+			<td><code>-H [HOST]</code></td>
+			<td><code>--host [HOST]</code></td>
+			<td>Specifies the url to the Scheduler, defaults to <code>http://localhost:3000/</code></td>
+		</tr>
+		<tr>
+			<td><code>-i [FILE]</code></td>
+			<td><code>--input [FILE]</code></td>
+			<td><strong>[Required]</strong> Input file to transcode</td>
+		</tr>
+		<tr>
+			<td><code>-o [FILE]</code></td>
+			<td><code>--output [FILE]</code></td>
+			<td><strong>[Required]</strong> Output file to write to</td>
+		</tr>
+		<tr>
+			<td><code>-p [NAME]</code></td>
+			<td><code>--preset [NAME]</code></td>
+			<td><strong>[Required]</strong> Name of the preset to use</td>
+		</tr>
+		<tr>
+			<td><code>-n [LIST]</code></td>
+			<td><code>--notify [LIST]</code></td>
+			<td>List of comma separated email address and urls to notify</td>
+		</tr>
+		<tr>
+			<td><code>-v</code></td>
+			<td><code>--verbose</code></td>
+			<td>Display verbose output</td>
+		</tr>
+		<tr>
+			<td><code>-s</code></td>
+			<td><code>--silent</code></td>
+			<td>Don't output anything at all</td>
+		</tr>
+		<tr>
+			<td><code>-h</code></td>
+			<td><code>--help</code></td>
+			<td>Display help</td>
+		</tr>
+	</table>
+</p>
+
+<h2>Examples</h2>
+<ul class="in">
+	<li>
+		<p>
+			To convert <code>/files/movie.flv</code> to <code>/files/movie.mp4</code> using a preset named h264, use:
+			{% highlight bash %}
+			$ codem -i /files/movie.flv -o /files/movie.mp4 -p h264
+			{% endhighlight %}
+		</p>
+	</li>
+	<li>
+		<p>
+			To convert <code>/files/movie.flv</code> to <code>/files/movie.mp4</code> using a preset named h264 on a Scheduler located at http://scheduler.com/ and notify notifications@host.com and http://host.com/notifications, use:
+			{% highlight bash %}
+			$ codem -H http://scheduler.com -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.com,http://host.com/notifications
+			{% endhighlight %}
+
+		</p>	</li>
+</ul>
+
