@@ -3,24 +3,25 @@ title: Architecture of Codem
 layout: default
 ---
 <div class="crumbs">
-	<a href="/codem/index.html">Home</a> | Architecture
+	<a href="/codem/index.html">Home</a> | {{ page.title }}
 </div>
 
 <h2>Introduction</h2>
 <p>
 	Codem consists of two separate packages which communicate via a JSON api. The Scheduler is built in Ruby on Rails and deals with scheduling and handling
 	of jobs. The Transcoder is built in NodeJS and handles the actual transcoding of videos through ffmpeg. Both packages can be used independently and
-	provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more than one Transcoder instance.
+	provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more than one Transcoder instance. Just launch
+	another Transcoder, and add it to the Scheduler.
 </p>
 
 <h3>The Scheduler</h3>
 <p>
-	The Scheduler is responsible for handling the jobs. It does so by keeping track of the state a job is in. When a job is created in the Scheduler,
-	it enters the Scheduled state. Eventually, a job will either succeed or fail. When this happens, the Scheduler is capable of sending out notifications
+	The Scheduler is responsible for handling the jobs and distributing them over the Transcoders. It does so by keeping track of the state a job is in and 
+	communicating with the Transcoders. Eventually, a job will either succeed or fail. When this happens, the Scheduler is capable of sending out notifications
 	via email or the web.
 </p>
 
-Read more about <a href="states.html">job states</a> and <a href="notifications.html">notifications</a>.
+Read more about <a href="/codem/documentation/states.html">job states</a> and <a href="/codem/documentation/notifications.html">notifications</a>.
 
 <p>
 	The Scheduler needs to know where to find the Transcoder instances. This can be done by adding Hosts to the Scheduler via the API or the web front end.

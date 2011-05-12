@@ -3,17 +3,18 @@ title: States of a job
 layout: default
 ---
 <div class="crumbs">
-	<a href="/codem/index.html">Home</a> | <a href="/codem/architecture">Architecture</a> | States
+	<a href="/codem/index.html">Home</a> | <a href="/codem/documentation">Documentation</a> | {{ page.title }}
 </div>
 
 <h2>Overview</h2>
 
 <p>
 	A job in the Scheduler can be in one of a number of states. Whenever a state changes occurs, it will be saved to the database with a timestamp, 
-	and can be viewed in the web front end or retrieved from the Scheduler API. The API documentation for state changes can be found <a href="http://rubydoc.info/github/NPO/codem-schedule/master/Api/NotificationsController" rel="external">here</a>. State changes can also be used as a hook to send out <a href="notifications.html">notifications</a> via email or the web.
+	and can be viewed in the web front end or retrieved from the Scheduler API. The API documentation for state changes can be found <a href="http://rubydoc.info/github/NPO/codem-schedule/master/Api/NotificationsController" rel="external">here</a>. State changes can also be used as a hook to send out <a href="notifications.html">notifications</a> via email or the web. By default, notifications (if any) are sent out when a job enters the
+	Scheduled or Failed state. It is however relatively easy to add notification hooks to the other states as well.
 </p>
 
-The states of a job:
+A job can be in one of these states:
 <dl class="job-states">
 	<dt><a href="#scheduled">Scheduled</a></dt>
 	<dd>The job is waiting to be accepted by a Transcoder</dd>
@@ -23,7 +24,7 @@ The states of a job:
 	<dd>The job is being transcoded by the Transcoder</dd>
 	<dt><a href="#on_hold">On Hold</a></dt>
 	<dd>The Transcoder instance for this job is currently unreachable</dd>
-	<dt><a href="#completed">Completed</a></dt>
+	<dt><a href="#success">Success</a></dt>
 	<dd>The job has been successfully transcoded</dd>
 	<dt><a href="#failed">Failed</a></dt>
 	<dd>The job could not be transcoded because an error occured</dd>
@@ -51,17 +52,18 @@ The states of a job:
 <h3 id="on_hold">On Hold</h3>
 <p>
 	Whenever a Transcoder affiliated with a job is unavailable, that job will enter the On Hold state. Either the Transcoder has gone away
-	or could not be reached in time. Since no information is available about the job's progress, the job will enter the On Hold state.
+	or did not respond in time. Since no information is available about the job's progress, the job will enter the On Hold state. Whenever a Transcoder
+	is responding again, the job will enter either the Processing or Failed state, based on what the Transcoder reports.
 </p>
 
-<h3 id="completed">Completed</h3>
+<h3 id="Success">Success</h3>
 <p>
-	When a Transcoder successfully finishes transcoding a job, this job will enter the Completed state. The job's progress will be set to 1 and
+	When a Transcoder successfully finishes transcoding a job, this job will enter the Success state. The job's progress will be set to 1 and
 	notifications (if any) will be sent by the Scheduler.
 </p>
 
 <h3 id="failed">Failed</h3>
 <p>
 	If an error occurs in the Transcoder, a job will enter the Failed state. A message indicating the error will be stored alongside the state change.
-	Failed jobs will not automatically be rescheduled.
+	Notifications (if any) will be sent by the Scheduler. Failed jobs will not automatically be rescheduled.
 </p>

@@ -1,0 +1,58 @@
+---
+title: Notifications
+layout: default
+---
+<div class="crumbs">
+	<a href="/codem/index.html">Home</a> | <a href="/codem/documentation">Documentation</a> | {{ page.title }}
+</div>
+
+<ol class="submenu in">
+	<li><a href="#overview">Overview</a></li>
+	<li><a href="#adding">Adding notifications to a job</a></li>
+	<li><a href="#receiving">Receiving notifications</a></li>
+	<li><a href="#other_states">Adding notifications to other states</a></li>
+	<li><a href="#custom">Custom notifiers</a></li>
+</ol>
+
+<h2 id="overview">Overview</h2>
+<p>
+	Notifications can be sent whenever a job enters a specific state. By default, the Scheduler sends out notifications when a job enters the Success or
+	Failed state. It is however relatively easy to add notification hooks to the other states as well.
+</p>
+
+<h2 id="adding">Adding notifications to a job</h2>
+<h3>Via the web front end</h3>
+<p>
+	Adding notifications via the web front end can be done by entering email addresses and web urls in the Notify field:
+	<img src="/codem/images/notifications.gif" alt="Entering notifications in the web front end" class="screenshot" />	
+</p>
+
+<h3>Via the API</h3>
+<p>
+	To add notifications via the API with the codem executable, use the following:
+{% highlight bash %}
+$ codem -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.com,http://host.com/notifications
+{% endhighlight %}
+</p>
+
+<h2 id="receiving">Receiving notifications</h2>
+<p>
+	
+</p>
+
+<h2 id="other_states">Adding notifications to other states</h2>
+<p>
+	Adding notifications to other states is very easy. Open <code>app/models/jobs/states.rb</code> in a text editor, and add <code>notify</code> to the state you want to be notified of.
+	In the screenshot below, notifications have been added to the OnHold state.
+	<img src="/codem/images/notify_on_hold.gif" alt="Send notifications when a job enters OnHold" class="screenshot" />
+</p>
+
+<h2 id="custom">Adding custom notifiers</h2>
+<p>
+	To add a custom notification to the scheduler, subclass <code>Notification</code> and implement the <code>do_notify!</code> method.
+	This method will receive a hash of options, namely: <code>{ :job => 'job that has changed', :state => 'the state the job entered' }</code>.
+	For instance, to create a notifier that sends information to Twitter using the <a href="https://github.com/jnunemaker/twitter" rel="external">twitter</a> gem:
+	<img src="/codem/images/notify_twitter.gif" alt="Example Twitter notifier" class="screenshot" />
+	To actually expose the custom notifier into the Scheduler, add it to the <code>from_api</code> method of <code>Notifier</code>. This implementation is left as an exercise to the reader.
+</p>
+
