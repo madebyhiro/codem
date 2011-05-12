@@ -10,8 +10,7 @@ layout: default
 
 <p>
 	A job in the Scheduler can be in one of a number of states. Whenever a state changes occurs, it will be saved to the database with a timestamp, 
-	and can be viewed in the web front end or retrieved from the Scheduler API. State changes can also be used as a hook to send out notifications via
-	email or the web.
+	and can be viewed in the web front end or retrieved from the Scheduler API. The API documentation for state changes can be found <a href="http://rubydoc.info/github/NPO/codem-schedule/master/Api/NotificationsController" rel="external">here</a>. State changes can also be used as a hook to send out <a href="notifications.html">notifications</a> via email or the web.
 </p>
 
 The states of a job:
@@ -40,7 +39,7 @@ The states of a job:
 <h3 id="accepted">Accepted</h3>
 <p>
 	The job has been accepted by a transcoder, but has not begun transcoding. This state is primarily for sending out notifications, since a Transcoder
-	will start processing the job immediately.
+	will start processing the job almost immediately.
 </p>
 
 <h3 id="processing">Processing</h3>
