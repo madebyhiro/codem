@@ -1,5 +1,5 @@
 ---
-title: Architecture of Codem
+title: Overview of Codem
 layout: default
 ---
 <div class="crumbs">
@@ -8,10 +8,14 @@ layout: default
 
 <h2>Introduction</h2>
 <p>
+	Codem is designed to be <strong>flexible</strong>, <strong>scalable</strong> and <strong>robust</strong>. Flexible, since it's easy to extend, scalable, 
+	since it's easy to add more Transcoders, and robust because each part of the system acts independently of the others.  Codem is built using open source technologies that have proven their value in various production environments.
+</p>
+<p>
 	Codem consists of two separate packages which communicate via a JSON api. The Scheduler is built in Ruby on Rails and deals with scheduling and handling
 	of jobs. The Transcoder is built in NodeJS and handles the actual transcoding of videos through ffmpeg. Both packages can be used independently and
-	provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more than one Transcoder instance. Just launch
-	another Transcoder, and add it to the Scheduler.
+	provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more Transcoder instances. Just set up
+	another Transcoder, add it to the Scheduler, and it will start to accept jobs.
 </p>
 
 <h3>The Scheduler</h3>
@@ -27,3 +31,5 @@ Read more about <a href="/codem/documentation/states.html">job states</a> and <a
 	The Scheduler needs to know where to find the Transcoder instances. This can be done by adding Hosts to the Scheduler via the API or the web front end.
 	Parameters to ffmpeg, such as width, height, output format and such can be added to the Scheduler by creating a Preset via the API or the web front end.
 </p>
+
+Read more about <a href="/codeum/documentation/hosts.html">hosts</a> and <a href="/codem/documentation/presets.html">presets</a>.

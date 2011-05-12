@@ -48,7 +48,7 @@ nav ol li {
 }
 
 nav ol li a {
-	padding:10px;
+	padding:13px 20px 10px 0;
 	color:white;
 	float:left;
 	display:block;
@@ -183,4 +183,23 @@ ol.submenu {
 	display:block;
 	margin:12px 0;
 	list-style-position:inside;
+}
+
+pre {
+	font-size:12px;
+	line-height:14px;
+}
+
+table.codem-help {
+	margin:12px 0;
+	border-collapse:collapse;
+	width:100%;
+	border:1px solid #CCC;
+	font-size:80%;
+}
+
+table.codem-help td, table.codem-help th {
+	text-align:left;
+	border:1px solid #CCC;
+	padding:6px 12px;
 }

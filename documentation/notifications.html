@@ -37,22 +37,46 @@ $ codem -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.co
 
 <h2 id="receiving">Receiving notifications</h2>
 <p>
-	
+	If an email notification is sent, the specified email address received a plain text email describing the changes that happened. The email includes a
+	direct link to the job in the Scheduler API. If an url notification is sent, the corresponding url receives a JSON representation of the job. The JSON below is an example when a job entered the Success state.
+{% highlight bash %}
+{
+	"job": {
+		"callback_url":"http://localhost:3000/api/jobs/26",
+		"completed_at":"2011-05-10T08:45:03Z",
+		"created_at":"2011-05-10T08:25:00Z",
+		"destination_file":"/tmp/movie.mp4",
+		"duration":10577,
+		"filesize":4873221,
+		"host_id":1,
+		"id":26,
+		"message":null,
+		"preset_id":1,
+		"progress":1,
+		"remote_job_id":"fa832776a64b6844fb9f1a244757734a9d83c00f",
+		"source_file":"/tmp/movie.flv",
+		"state":"success",
+		"transcoding_started_at":"2011-05-10T08:25:03Z",
+		"updated_at":"2011-05-10T08:25:03Z" 
+	}
+}
+{% endhighlight %}
 </p>
 
 <h2 id="other_states">Adding notifications to other states</h2>
 <p>
 	Adding notifications to other states is very easy. Open <code>app/models/jobs/states.rb</code> in a text editor, and add <code>notify</code> to the state you want to be notified of.
-	In the screenshot below, notifications have been added to the OnHold state.
+	In the screenshot below, sending notifications have been added to the OnHold state.
 	<img src="/codem/images/notify_on_hold.gif" alt="Send notifications when a job enters OnHold" class="screenshot" />
 </p>
 
 <h2 id="custom">Adding custom notifiers</h2>
 <p>
 	To add a custom notification to the scheduler, subclass <code>Notification</code> and implement the <code>do_notify!</code> method.
-	This method will receive a hash of options, namely: <code>{ :job => 'job that has changed', :state => 'the state the job entered' }</code>.
+	This method will receive a hash of options, namely: <code>{ :job => Job object, :state => 'state name' }</code>.
 	For instance, to create a notifier that sends information to Twitter using the <a href="https://github.com/jnunemaker/twitter" rel="external">twitter</a> gem:
 	<img src="/codem/images/notify_twitter.gif" alt="Example Twitter notifier" class="screenshot" />
-	To actually expose the custom notifier into the Scheduler, add it to the <code>from_api</code> method of <code>Notifier</code>. This implementation is left as an exercise to the reader.
+	To actually expose the custom notifier into the Scheduler, add it to the <code>from_api</code> method of <code>Notifier</code>.<br/>
+	This implementation is left as an exercise to the reader.
 </p>
 
