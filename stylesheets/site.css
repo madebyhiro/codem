@@ -135,3 +135,34 @@ footer a {
 ol.in, ul.in {
 	list-style-position:inside;
 }
+
+pre {
+	font-size:12px;
+	white-space:pre-wrap;
+}
+
+dl {
+	display:block;
+	margin:12px 0;
+	width:100%;
+	overflow:hidden;
+}
+
+dl dt, dl dd {
+	float:left;
+	display:block;
+}
+
+dl dt {
+	width:20%;
+	font-weight:bold;
+}
+
+dl dd {
+	clear:right;
+	width:80%;
+}
+
+div.crumbs {
+	font-size:80%;
+}
