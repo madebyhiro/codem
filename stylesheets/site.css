@@ -32,12 +32,7 @@ p {
 }
 
 nav {
-<<<<<<< HEAD
-=======
-	width:800px;
-	max-width:860px;
-	position:absolute;
->>>>>>> ab4885d03620f0728b746f7dd000ce4e968b9984
+	width:100%;
 	background-color:#a00;
 	height:40px;
 	margin:-30px;
@@ -61,11 +56,7 @@ nav ol li a {
 }
 
 div.logo {
-<<<<<<< HEAD
 	margin-top:40px;
-=======
-	margin-top:20px;
->>>>>>> ab4885d03620f0728b746f7dd000ce4e968b9984
 	margin-left:-20px;
 	width:100%;
 	height:85px;
@@ -83,11 +74,7 @@ div.logo h1 {
 }
 
 section#content {
-<<<<<<< HEAD
 	width:70%;
-=======
-	width:800px;
->>>>>>> ab4885d03620f0728b746f7dd000ce4e968b9984
 	margin:0 auto;
 	background-color:white;
   -moz-box-shadow: 0 0 1em #333;
@@ -146,7 +133,6 @@ footer a {
 ol.in, ul.in {
 	list-style-position:inside;
 }
-<<<<<<< HEAD
 
 ol.none, ul.none {
 	list-style:none;
@@ -198,5 +184,3 @@ ol.submenu {
 	margin:12px 0;
 	list-style-position:inside;
 }
-=======
->>>>>>> ab4885d03620f0728b746f7dd000ce4e968b9984
