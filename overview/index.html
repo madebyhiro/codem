@@ -25,11 +25,26 @@ layout: default
 	via email or the web.
 </p>
 
-Read more about <a href="/codem/documentation/states.html">job states</a> and <a href="/codem/documentation/notifications.html">notifications</a>.
+<p>
+  Read more about <a href="/codem/documentation/states.html">job states</a> and <a href="/codem/documentation/notifications.html">notifications</a>.
+</p>
 
 <p>
 	The Scheduler needs to know where to find the Transcoder instances. This can be done by adding Hosts to the Scheduler via the API or the web front end.
 	Parameters to ffmpeg, such as width, height, output format and such can be added to the Scheduler by creating a Preset via the API or the web front end.
 </p>
 
-Read more about <a href="/codeum/documentation/hosts.html">hosts</a> and <a href="/codem/documentation/presets.html">presets</a>.
+<p>
+  Read more about <a href="/codeum/documentation/hosts.html">hosts</a> and <a href="/codem/documentation/presets.html">presets</a>.
+</p>
+
+<h3>The Transcoder</h3>
+<p>
+  The Transcoder is responsible for transcoding video from one format to another via ffmpeg. It is capable of keeping track
+  of properties of a video file, such as filesize, duration and the progress of transcoding. These parameters can be 
+  retrieved via the API of the Transcoder. A callback url parameter needs to be specified when adding a job to a Transcoder. This url will receive a request when the job has either finished transcoding, or when an error occurred preventing the job from completing.
+</p>
+
+<p>
+  A complete overview of the API of the Transcoder can be found <a href="https://github.com/NPO/codem-transcode#readme" rel="external">here</a>.
+</p>
