@@ -10,3 +10,29 @@ layout: default
 <p>
 	A host in the Scheduler represents a Transcoder server running somewhere. Hosts can be added through the API and the web front end.
 </p>
+<p>
+  To create a host via the API, use the following command:
+</p>
+{% highlight bash %}
+$ curl -d 'name=transcoder&url=http://transcoder.com' http://localhost:3000/api/hosts
+{% endhighlight %}
+<p>
+  The Scheduler will respond with something like:
+</p>
+{% highlight bash %}
+   {
+     "host": {
+       "available":true,
+       "available_slots":10,
+       "created_at":"2011-05-09T15:32:53Z",
+       "id":6,
+        "name":"transcoder",
+        "total_slots":10,
+        "updated_at":"2011-05-09T15:32:53Z",
+        "url":"http://transcoder.com"
+     }
+   }
+{% endhighlight %}
+<p>
+  For more information, see the API documentation of the Scheduler <a href="http://rubydoc.info/github/NPO/codem-schedule/master/frames" rel="external">here</a>.
+</p>
