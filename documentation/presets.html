@@ -5,3 +5,34 @@ layout: default
 <div class="crumbs">
 	<a href="/index.html">Home</a> | <a href="/documentation">Documentation</a> | {{ page.title }}
 </div>
+
+<h2>Overview</h2>
+<p>
+  A Preset represents command line options to ffmpeg, via the Transcoders. Read more about ffmpeg's parameters <a href="http://www.ffmpeg.org/ffmpeg-doc.html" rel="external">here</a>.
+</p>
+
+<p>
+  To create a preset via the API, use the following command:
+</p>
+{% highlight bash %}
+ $ curl -d 'name=webm&parameters=params' http://localhost:3000/api/presets
+{% endhighlight %}
+<p>
+  The Scheduler will respond with something like:
+</p>
+{% highlight bash %}
+{
+  "preset":
+  {
+    "created_at":"2011-05-10T14:44:07Z",
+    "id":3,
+    "name":"webm",
+    "parameters":
+    "params",
+    "updated_at":"2011-05-10T14:44:07Z"}
+  }
+}
+{% endhighlight %}
+<p>
+  For more information, see the API documentation of the Scheduler <a href="http://rubydoc.info/github/NPO/codem-schedule/master/frames" rel="external">here</a>.
+</p>
