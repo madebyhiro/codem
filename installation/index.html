@@ -48,21 +48,15 @@ layout: default
 
 <ol class="in">
 	<li>
-		Either clone the git repository or <a href="https://github.com/NPO/codem-transcode/archives/master" rel="external">download</a> a packaged archive.
-		{% highlight bash %}		
-		$ git clone git://github.com/NPO/codem-transcode.git && cd codem-transcode
+		Preferred way: install with npm
+		{% highlight bash %}
+		$ npm install codem-transcode
 		{% endhighlight %}
 	</li>
 	<li>
-		Install dependencies with npm
+		Start the server (depending on where npm installs your stuff)
 		{% highlight bash %}
-		$ npm install sqlite3 connect argsparser mkdirp
-		{% endhighlight %}
-	</li>
-	<li>
-		Start the server
-		{% highlight bash %}
-		$ node transcoder.js
+		$ /PATH/TO/TRANSCODER/bin/codem-transcode
 		{% endhighlight %}
 	</li>
 </ol>
