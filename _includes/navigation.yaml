@@ -1,0 +1,13 @@
+{% unless page.layout == 'front' %}
+  <ul class="nav">
+    {% for link in site.navigation %}
+      {% assign current = nil %}
+      {% if page.url contains link.url %}
+        {% assign current = 'active' %}
+      {% endif %}
+      <li class="{{ current }}">
+        <a href="/{{ link.url }}">{{ link.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endunless %}

@@ -1,50 +1,48 @@
 ---
+layout: application
 title: Overview of Codem
-layout: default
 ---
-<div class="crumbs">
-	<a href="/">Home</a> | {{ page.title }}
+
+<div class="page-header">
+<h1>Overview of Codem</h1>
 </div>
 
 <h2>Introduction</h2>
 <p>
-	Codem is designed to be <strong>flexible</strong>, <strong>scalable</strong> and <strong>robust</strong>. Flexible, since it's easy to extend, scalable, 
-	since it's easy to add more Transcoders, and robust because each part of the system acts independently of the others.  Codem is built using open source technologies that have proven their value in various production environments.
+Codem is designed to be flexible, scalable and robust. Flexible, since it's easy to extend, scalable, since it's easy to add more Transcoders, and robust because each part of the system acts independently of the others. Codem is built using open source technologies that have proven their value in various production environments.
 </p>
 <p>
-	Codem consists of two separate packages which communicate via a JSON api. The Scheduler is built in Ruby on Rails and deals with scheduling and handling
-	of jobs. The Transcoder is built in NodeJS and handles the actual transcoding of videos through ffmpeg. Both packages can be used independently and
-	provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more Transcoder instances. Just set up
-	another Transcoder, add it to the Scheduler, and it will start to accept jobs.
+Codem consists of two separate packages which communicate via a JSON api. The Scheduler is built in Ruby on Rails and deals with scheduling and handling of jobs. The Transcoder is built in NodeJS and handles the actual transcoding of videos through ffmpeg. Both packages can be used independently and provide a simple JSON api themselves. In case you need more transcoding power, it's easy to set up more Transcoder instances. Just set up another Transcoder, add it to the Scheduler, and it will start to accept jobs.
 </p>
 
-<h3>The Scheduler</h3>
+<h2>The Scheduler</h2>
 <p>
-	The Scheduler is responsible for handling the jobs and distributing them over the Transcoders. It does so by keeping track of the state a job is in and 
-	communicating with the Transcoders. Eventually, a job will either succeed or fail. When this happens, the Scheduler is capable of sending out notifications
-	via email or the web.
+The Scheduler is responsible for handling the jobs and distributing them over the Transcoders. It does so by keeping track of the state a job is in and 
+communicating with the Transcoders. Eventually, a job will either succeed or fail. When this happens, the Scheduler is capable of sending out notifications
+via email or the web.
 </p>
-
 <p>
-  Read more about <a href="/documentation/states.html">job states</a> and <a href="/documentation/notifications.html">notifications</a>.
+Read more about <a href="/documentation/states.html">job states</a> and <a href="/documentation/notifications.html">notifications</a>.
 </p>
 
 <p>
-	The Scheduler needs to know where to find the Transcoder instances. This can be done by adding Hosts to the Scheduler via the API or the web front end.
-	Parameters to ffmpeg, such as width, height, output format and such can be added to the Scheduler by creating a Preset via the API or the web front end.
+The Scheduler needs to know where to find the Transcoder instances. This can be done by adding Hosts to the Scheduler via the API or the web front end.
+Parameters to ffmpeg, such as width, height, output format and such can be added to the Scheduler by creating a Preset via the API or the web front end.
 </p>
 
 <p>
-  Read more about <a href="/documentation/hosts.html">hosts</a> and <a href="/documentation/presets.html">presets</a>.
+Read more about <a href="/documentation/hosts.html">hosts</a> and <a href="/documentation/presets.html">presets</a>.
 </p>
 
-<h3>The Transcoder</h3>
+<h2>The Transcoder</h2>
 <p>
-  The Transcoder is responsible for transcoding video from one format to another via ffmpeg. It is capable of keeping track
-  of properties of a video file, such as filesize, duration and the progress of transcoding. These parameters can be 
-  retrieved via the API of the Transcoder. A callback url parameter needs to be specified when adding a job to a Transcoder. This url will receive a request when the job has either finished transcoding, or when an error occurred preventing the job from completing.
+The Transcoder is responsible for transcoding video from one format to another via ffmpeg. It is capable of keeping track
+of properties of a video file, such as filesize, duration and the progress of transcoding. These parameters can be 
+retrieved via the API of the Transcoder. A callback url parameter needs to be specified when adding a job to a Transcoder. This url will receive a request when the job has either finished transcoding, or when an error occurred preventing the job from completing.
 </p>
 
 <p>
-  A complete overview of the API of the Transcoder can be found <a href="https://github.com/madebyhiro/codem-transcode#readme" rel="external">here</a>.
+A complete overview of the API of the Transcoder can be found <a href="https://github.com/madebyhiro/codem-transcode#readme" rel="external">here</a>.
 </p>
+
+

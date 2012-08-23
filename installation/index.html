@@ -1,16 +1,16 @@
 ---
 title: Installation of Codem
-layout: default
+layout: application
 ---
-<div class="crumbs">
-	<a href="/">Home</a> | {{ page.title }}
+<div class="page-header">
+  <h1>Installation of Codem</h1>
 </div>
 
 <p>
 	Installing Codem is a three step process.	
 </p>
 
-<ol class="submenu">
+<ol>
 	<li>
 		<a href="#prereq">Install the prerequisites</a>
 	</li>
@@ -22,13 +22,11 @@ layout: default
 	</li>
 </ol>
 
-<a name="prereq"></a>
 <h2>1. Prerequisites</h2>
 <p>
 	Packages listed here are required to run the Codem software suite.
 </p>
-
-<ol class="in">
+<ol>
 	<li><a href="http://www.ruby-lang.org/en/" rel="external">ruby >= 1.9.2</a></li>
 	<li><a href="http://www.ruby-lang.org/en/" rel="external">rails >= 3.0</a></li>
 	<li><a href="http://nodejs.org/" rel="external">node js</a></li>
@@ -41,23 +39,20 @@ layout: default
 	<a href="http://git-scm.com/" rel="external">git</a> is required if you want to work on the source code of Codem.
 </p>
 
-<hr/>
-
 
 <a name="transcoder"></a>
 <h2>2. Installing the Transcoder</h2>
-
-<ol class="in">
+<ol>
 	<li>
 		Preferred way: install with npm
 		{% highlight bash %}
-		$ npm install codem-transcode
+		npm install codem-transcode
 		{% endhighlight %}
 	</li>
 	<li>
 		Start the server (depending on where npm installs your stuff)
 		{% highlight bash %}
-		$ /PATH/TO/TRANSCODER/bin/codem-transcode
+		/PATH/TO/TRANSCODER/bin/codem-transcode
 		{% endhighlight %}
 	</li>
 </ol>
@@ -65,29 +60,26 @@ layout: default
 	For more information, see the <a href="https://github.com/madebyhiro/codem-transcode" rel="external">Transcoder README</a>
 </p>
 
-<hr/>
-
 
 <a name="scheduler"></a>
 <h2>3. Installing the Scheduler</h2>
-
-<ol class="in">
+<ol>
 	<li>
 		Either clone the git repository or <a href="https://github.com/madebyhiro/codem-schedule/archives/master" rel="external">download</a> a packaged archive.
 		{% highlight bash %}		
-		$ git clone git://github.com/madebyhiro/codem-schedule.git && cd codem-schedule
+		git clone git://github.com/madebyhiro/codem-schedule.git && cd codem-schedule
 		{% endhighlight %}
 	</li>
 	<li>
 		Install the required gems.
 		{% highlight bash %}
-		$ bundle install
+		bundle install
 		{% endhighlight %}
 	</li>
 	<li>
 		Run the installer rake task, which will setup the application.
 		{% highlight bash %}
-		$ rake codem:install
+		rake codem:install
 		{% endhighlight %}
 	</li>
 	<li>
@@ -99,10 +91,11 @@ layout: default
 	<li>
 		Start the server
 		{% highlight bash %}
-		$ rails server
+		rails server
 		{% endhighlight %}
 	</li>
 </ol>
 <p>
 	For more information, see the <a href="https://github.com/madebyhiro/codem-schedule" rel="external">Scheduler README</a>
 </p>
+

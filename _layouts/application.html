@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>{{ page.title }}</title>
+    <link href="/assets/stylesheets/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+		<script src="/assets/javascripts/bootstrap.js" type="text/javascript"></script>
+		<script src="/assets/javascripts/application.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23276827-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="ribwrap">
+      <div class="ribbon">
+        <a href="https://github.com/madebyhiro" title="Hiro on GitHub" rel="us">Fork us on GitHub</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">Codem</a>
+            {% include navigation.yaml %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container main">
+      {{ content }}
+    </div>
+
+    <div class="container">
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <a href="http://madebyhiro.com"><img src="/assets/images/logo.png" title="Hiro" class="logo" /></a>
+      <p class="hiro">Made by <a href="http://madebyhiro.com/" class="red">Hiro</a></p>
+      <p><a href="http://madebyhiro.com/" class="blue link">http://madebyhiro.com/</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

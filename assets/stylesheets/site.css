@@ -1,0 +1,70 @@
+div.main {
+  margin-top:60px;
+}
+
+div.ribwrap {
+  right:0;
+  height:150px;
+  overflow:hidden;
+  position: absolute;
+  z-index:2030;
+}
+
+.ribbon {
+  background-color: #a00;
+  overflow: hidden;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-box-shadow: 0 0 1em #444;
+  -webkit-box-shadow: 0 0 1em #444;
+  position:relative;
+  top:2.5em;
+  right:-3em;
+}
+
+.ribbon a {
+  border: 1px solid #faa;
+  color: #fff;
+  display: block;
+  font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+  margin: 0.05em 0 0.075em 0;
+  padding: 0.5em 3.5em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 0.5em #444;
+}
+
+footer {
+  display:block;
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  border-top: 1px solid #E5E5E5;
+}
+
+footer img.logo {
+  float:left;
+  width:50px;
+  margin-right:15px;
+}
+
+footer .hiro {
+  font-size:18px;
+  font-weight:bold;
+}
+
+footer .link {
+  font-weight:bold;
+}
+
+.red {
+  color: #b31111 !important;
+}
+
+.blue {
+  color: #15162a !important;
+}
+
+img.screenshot {
+  display:block;
+  margin:1em 0;
+}

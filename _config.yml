@@ -1,2 +1,15 @@
-auto: false
-server: false
+auto: true
+server: true
+
+navigation:
+- text: Overview
+  url: overview
+- text: Installation
+  url: installation
+- text: Documentation
+  url: documentation
+- text: License
+  url: license
+- text: Contact Us
+  url: contact
+
