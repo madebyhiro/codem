@@ -44,6 +44,11 @@ layout: application
 			<td><strong>[Required]</strong> Name of the preset to use</td>
 		</tr>
 		<tr>
+			<td><code>-r [INT]</code></td>
+			<td><code>--priority [INT]</code></td>
+			<td>Priority of the job, as integer from 0 (highest) to 999 (lowest)</td>
+		</tr>
+		<tr>
 			<td><code>-n [LIST]</code></td>
 			<td><code>--notify [LIST]</code></td>
 			<td>List of comma separated email address and urls to notify</td>
@@ -78,9 +83,9 @@ layout: application
 	</li>
 	<li>
 		<p>
-			To convert <code>/files/movie.flv</code> to <code>/files/movie.mp4</code> using a preset named h264 on a Scheduler located at http://scheduler.com/ and notify notifications@host.com and http://host.com/notifications, use:
+			To convert <code>/files/movie.flv</code> to <code>/files/movie.mp4</code> using a preset named h264 on a Scheduler located at http://scheduler.com/ and notify notifications@host.com and http://host.com/notifications, and a priority of 5 use:
 			{% highlight bash %}
-			$ codem -H http://scheduler.com -i /files/movie.flv -o /files/movie.mp4 -p h264 -n notifications@host.com,http://host.com/notifications
+			$ codem -H http://scheduler.com -i /files/movie.flv -o /files/movie.mp4 -p h264 -r 5 -n notifications@host.com,http://host.com/notifications
 			{% endhighlight %}
 
 		</p>	</li>
