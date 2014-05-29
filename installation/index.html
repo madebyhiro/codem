@@ -6,6 +6,78 @@ layout: application
   <h1>Installation of Codem</h1>
 </div>
 
+<h2>Install a prepackaged, standalone version</h2>
+<hr/>
+<p>
+  Both the Scheduler and the Transcoder are available as standalone packages. These are experimental, alpha-stage installers. We hope you, the users, can
+  provide us with feedback about the installation proces. Please contact us at <a href="mailto:hello@madebyhiro.com">hello@madebyhiro.com</a>.
+</p>
+
+<br/>
+<h3>Scheduler</h3>
+<p>The Scheduler packages contain ruby 2.1.1, sqlite and all necessary gems to run the Scheduler. The Scheduler will be installed in <code>/opt/codem-scheduler</code>.</p>
+<table class="downloads">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Platform</th>
+    <th>Download</th>
+    <th>MD5</th>
+  </tr>
+  <tr>
+    <td class="img"><img src="{{ site.url }}/assets/images/ubuntu.png"></td>
+    <td>Ubuntu 12.04 LTS 64bit</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AADYvoUsnIq9kk_J1bJjEro2a/codem-scheduler_0.0.0_amd64.deb">codem-scheduler_0.0.0_amd64.deb</a></td>
+    <td>e6a4a6ccec1c31bb800dca46a6ff72e1</td>
+  </tr>
+  <tr>
+    <td><img src="{{ site.url }}/assets/images/centos.png"></td>
+    <td>CentOS 6.5 64bit (or compatible Enterprise Linux 6.x distro)</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AAC_ZCixNKYp4rhh0yFGMzYWa/codem-scheduler-0.0.0.el6.x86_64.rpm">codem-scheduler-0.0.0.el6.x86_64.rpm</a></td>
+    <td>d88ef0dbae48bf91920dff0ab032e0fd</td>
+  </tr>
+  <tr>
+    <td><img src="{{ site.url }}/assets/images/osx.png"></td>
+    <td>Mac OS X</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AADHgPCMTVc-tCtuUe_IBKAta/codem-scheduler-0.0.0.pkg">codem-scheduler-0.0.0.pkg</a></td>
+    <td>5db1878a33496a9a65ecfcef19253e2d</td>
+  </tr>
+</table>
+
+<br/>
+<h3>Transcoder</h3>
+<p>The Transcoder packages contain nodejs, sqlite and ffmpeg with x264, faac, xvid and lame codecs. The Transcoder will be installed in <code>/opt/codem-transcoder</code>.</p>
+<table class="downloads">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Platform</th>
+    <th>Download</th>
+    <th>MD5</th>
+  </tr>
+  <tr>
+    <td class="img"><img src="{{ site.url }}/assets/images/ubuntu.png"></td>
+    <td>Ubuntu 12.04 LTS 64bit</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AADHgPCMTVc-tCtuUe_IBKAta/codem-scheduler-0.0.0.pkg">codem-scheduler-0.0.0.pkg</a></td>
+    <td>d88ef0dbae48bf91920dff0ab032e0fd</td>
+  </tr>
+  <tr>
+    <td><img src="{{ site.url }}/assets/images/centos.png"></td>
+    <td>CentOS 6.5 64bit (or compatible Enterprise Linux 6.x distro)</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AABcD4G8fbkbhqv8gB9Q8y2za/codem-transcoder-0.0.0.el6.x86_64.rpm">codem-transcoder-0.0.0.el6.x84_64.rpm</a></td>
+    <td>eea53b656058db1197a4f0238ed7c306</td>
+  </tr>
+  <tr>
+    <td><img src="{{ site.url }}/assets/images/osx.png"></td>
+    <td>Mac OS X</td>
+    <td><a href="https://www.dropbox.com/sh/fi321pne5sbg3wl/AAAfVxP-JQ1RMq9E1swXs1XLa/codem-transcoder-0.0.0.pkg">codem-transcoder-0.0.0.pkg</a></td>
+    <td>d88d2c0dabd9b8df26da18bdfc34ac04</td>
+  </tr>
+</table>
+
+<br/>
+<br/>
+
+<h2>Installation from scratch</h2>
+<hr/>
 <p>
 	Installing Codem is a three step process.	
 </p>
@@ -22,7 +94,7 @@ layout: application
 	</li>
 </ol>
 
-<h2>1. Prerequisites</h2>
+<h3>1. Prerequisites</h3>
 <p>
 	Packages listed here are required to run the Codem software suite.
 </p>
@@ -41,7 +113,7 @@ layout: application
 
 
 <a name="transcoder"></a>
-<h2>2. Installing the Transcoder</h2>
+<h3>2. Installing the Transcoder</h3>
 <ol>
 	<li>
 		Preferred way: install with npm
@@ -62,24 +134,25 @@ layout: application
 
 
 <a name="scheduler"></a>
-<h2>3. Installing the Scheduler</h2>
+<h3>3. Installing the Scheduler</h3>
 <ol>
 	<li>
 		Either clone the git repository or <a href="https://github.com/madebyhiro/codem-schedule/archives/master" rel="external">download</a> a packaged archive.
 		{% highlight bash %}		
-		git clone git://github.com/madebyhiro/codem-schedule.git && cd codem-schedule
+		git clone git://github.com/madebyhiro/codem-schedule.git &amp;&amp;cd codem-schedule
 		{% endhighlight %}
 	</li>
 	<li>
 		Install the required gems.
 		{% highlight bash %}
-		bundle install
+		gem i bundler
+bundle install
 		{% endhighlight %}
 	</li>
 	<li>
 		Run the installer rake task, which will setup the application.
 		{% highlight bash %}
-		rake codem:install
+		bundle exec rake codem:install
 		{% endhighlight %}
 	</li>
 	<li>
@@ -91,7 +164,7 @@ layout: application
 	<li>
 		Start the server
 		{% highlight bash %}
-		rails server
+		bundle exec rails server
 		{% endhighlight %}
 	</li>
 </ol>

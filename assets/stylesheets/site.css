@@ -68,3 +68,24 @@ img.screenshot {
   display:block;
   margin:1em 0;
 }
+
+table.downloads {
+  width:100%;
+}
+
+table.downloads th, table.downloads td {
+  text-align:left;
+  padding:5px;
+}
+
+table.downloads th {
+  border-bottom:1px solid #ccc;
+}
+
+table.downloads td.img {
+  width:60px;
+}
+
+table.downloads td a {
+  font-weight:bold;
+}
