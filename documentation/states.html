@@ -20,10 +20,6 @@ layout: application
     <td>The job is waiting to be accepted by a Transcoder</td>
   </tr>
   <tr>
-    <th><a href="#accepted">Accepted</a></th>
-    <td>The job has been accepted by the Transcoder, but has not begun transcoding</td>
-  </tr>
-  <tr>
     <th><a href="#processing">Processing</a></th>
     <td>The job is being transcoded by the Transcoder</td>
   </tr>
@@ -46,12 +42,6 @@ layout: application
 	When a job enters the Scheduled state, it is waiting to be accepted by a Transcoder. Either the scheduling has not begun yet, or all Transcoder instances
 	are unable to accept any more jobs. A Transcoder instance has a number of slots available, which are by default defined by the number of processors a 
 	machine has.
-</p>
-
-<h2 id="accepted">Accepted</h2>
-<p>
-	The job has been accepted by a transcoder, but has not begun transcoding. This state is primarily for sending out notifications, since a Transcoder
-	will start processing the job almost immediately.
 </p>
 
 <h2 id="processing">Processing</h2>
