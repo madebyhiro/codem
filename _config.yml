@@ -1,6 +1,3 @@
-auto: true
-server: true
-
 navigation:
 - text: Overview
   url: overview
