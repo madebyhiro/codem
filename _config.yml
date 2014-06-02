@@ -1,3 +1,7 @@
+ftp_host: ftp.transcodem.com
+ftp_dir: html/transcodem.com
+ftp_passive: false
+
 navigation:
 - text: Overview
   url: overview
