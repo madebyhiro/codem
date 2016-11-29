@@ -1,5 +1,9 @@
-See http://transcodem.com for all info.
+The `codem` project is split into several projects:
 
-Regards,
+* [`codem-transcode`: offline video transcoding](https://github.com/madebyhiro/codem-transcode)
+* [`codem-schedule`: sample implementation of scheduling for `codem-transcode`](https://github.com/madebyhiro/codem-schedule)
+* [`codem-isoboxer`: MP4/ISOBMFF parsing for modern browsers and Node.js](https://github.com/madebyhiro/codem-isoboxer)
+
+Regards, your buddies at Hiro,
 @bartzon and @tieleman
 
