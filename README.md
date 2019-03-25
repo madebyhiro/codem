@@ -1,3 +1,7 @@
+# IMPORTANT: `codem-transcode` and `codem-schedule` are no longer actively maintained.
+
+---
+
 The `codem` project is split into several projects:
 
 * [`codem-transcode`: offline video transcoding](https://github.com/madebyhiro/codem-transcode)
